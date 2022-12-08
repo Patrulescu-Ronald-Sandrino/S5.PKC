@@ -58,6 +58,10 @@ class RSA(metaclass=MultipleMeta):
         return self.__e
 
     @property
+    def d(self) -> int:
+        return self.__d
+
+    @property
     def φ(self):
         return self.__φ
     # endregion
@@ -93,6 +97,7 @@ class RSA(metaclass=MultipleMeta):
         if not (27 ** k < self.n < 27 ** l):
             raise ValueError(f'k={k} and l={l} are invalid for n={self.n}')
 
+        print(f"ciphertext: {ciphertext}")
         blocks = self.__language.split_plaintext(ciphertext, l)
         print(f"blocks of {l} letters: {blocks}")
         converted_blocks = [self.__language.block_to_number(block) for block in blocks]

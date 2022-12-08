@@ -1,11 +1,11 @@
 from RSA import RSA
 
 p = 31
-q = 43
+q = 59
 k = 2
 l = 3
-mode = RSA.Mode.encrypt
-text = 'CRYPTO'
+mode = RSA.Mode.decrypt
+text = '_CI_SW_IX'
 
 
 rsa = RSA(p, q)
@@ -13,7 +13,8 @@ rsa = RSA(p, q)
 print(f"p={p}, q={q}")
 print()
 print(f"values:")
-print(f"n={rsa.n}, φ={rsa.φ}, e={rsa.e}")
+print(f"n={rsa.n}, φ={rsa.φ}, e={rsa.e}", end='')
+print(f", d={rsa.d}" if mode == RSA.Mode.decrypt else '')
 print()
 print()
 
